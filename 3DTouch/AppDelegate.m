@@ -36,8 +36,11 @@
         //判断先前我们设置的快捷选项标签唯一标识，根据不同标识执行不同操作
         if([shortcutItem.type isEqualToString:@"com.jing.touch.home"]){
             
-            [self.window.rootViewController presentViewController:viewController animated:YES completion:^{
+            NSArray * array = @[@"欢迎来到首页"];
+            UIActivityViewController * activityViewControlle = [[UIActivityViewController alloc]initWithActivityItems:array applicationActivities:nil];
+            [self.window.rootViewController presentViewController:activityViewControlle animated:YES completion:^{
             }];
+    
         } else if([shortcutItem.type isEqualToString:@"com.jing.touch.share"]){ //进入分享界面
             
             ShareViewController * shareVc = [[ShareViewController alloc] init];
@@ -92,9 +95,9 @@
     //判断先前我们设置的快捷选项标签唯一标识，根据不同标识执行不同操作
     if([shortcutItem.type isEqualToString:@"com.jing.touch.home"]){
         
-        NSArray * array = @[@"hello 3D Touch"];
-        UIActivityViewController *vc = [[UIActivityViewController alloc]initWithActivityItems:array applicationActivities:nil];
-        [self.window.rootViewController presentViewController:vc animated:YES completion:^{
+        NSArray * array = @[@"欢迎来到首页"];
+        UIActivityViewController * activityViewControlle = [[UIActivityViewController alloc]initWithActivityItems:array applicationActivities:nil];
+        [self.window.rootViewController presentViewController:activityViewControlle animated:YES completion:^{
         }];
     } else if([shortcutItem.type isEqualToString:@"com.jing.touch.share"]){ //进入分享界面
         
