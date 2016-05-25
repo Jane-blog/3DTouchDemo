@@ -1,6 +1,8 @@
 # 3DTouchDemo
 This demo expound the some of the 3 dtouch development methods
-{ UIApplicationShortcutItems :[
+
+{ 
+UIApplicationShortcutItems :[
 
 Item0:{
 UIApplicationShortcutItemTitle：标签标题（必填）
