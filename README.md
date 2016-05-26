@@ -27,22 +27,21 @@ This demo expound the some of the 3 dtouch development methods
     //添加到快捷选项数组
     [UIApplication sharedApplication].shortcutItems = @[item];
 在AppDelegate.m文件中加如下代码：
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setBackgroundColor:[UIColor whiteColor]];
     [self.window makeKeyAndVisible];
     ViewController * viewController = [[ViewController alloc] init];
     UINavigationController * navigationViewController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.window.rootViewController  = navigationViewController;
-    
-#pragma mark -  创建3D touch快捷选项 不写入info.plist文件
+    // pragma mark -  创建3D touch快捷选项 不写入info.plist文件
     UIApplicationShortcutIcon * icon = [UIApplicationShortcutIcon iconWithType:(UIApplicationShortcutIconTypeHome)];
     //创建快捷选项
     UIApplicationShortcutItem * item = [[UIApplicationShortcutItem alloc]initWithType:@"com.jing.touch.home" localizedTitle:@"首页" localizedSubtitle:@"进入首页" icon:icon userInfo:nil];
     //添加到快捷选项数组
     [UIApplication sharedApplication].shortcutItems = @[item];
-    
-#pragma mark -  创建3D touch快捷选项（从info.plist文件获取对应快捷选项标签）
+    // pragma mark -  创建3D touch快捷选项（从info.plist文件获取对应快捷选项标签）
     UIApplicationShortcutItem * shortcutItem = [launchOptions valueForKey:UIApplicationLaunchOptionsShortcutItemKey];
     // 直接从快捷选项标签启动app
     if (shortcutItem) {
@@ -53,7 +52,6 @@ This demo expound the some of the 3 dtouch development methods
             UIActivityViewController * activityViewControlle = [[UIActivityViewController alloc]initWithActivityItems:array applicationActivities:nil];
             [self.window.rootViewController presentViewController:activityViewControlle animated:YES completion:^{
             }];
-    
         } else if([shortcutItem.type isEqualToString:@"com.jing.touch.share"]){ //进入分享界面
             
             ShareViewController * shareVc = [[ShareViewController alloc] init];
@@ -72,4 +70,3 @@ This demo expound the some of the 3 dtouch development methods
     } 
     return YES;
 }
-
