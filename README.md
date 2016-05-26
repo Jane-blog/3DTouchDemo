@@ -69,4 +69,29 @@ This demo expound the some of the 3 dtouch development methods
         return NO;
     } 
     return YES;
-}
+    }
+#pragma mark - 如果app仍在后台运行，通过快捷选项标签进入app调用该方法
+    - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    ViewController * viewController = [[ViewController alloc] init];
+    UINavigationController * navigationViewController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    #pragma mark -  创建3D touch快捷选项（从info.plist文件获取对应快捷选项标签）
+    //判断先前我们设置的快捷选项标签唯一标识，根据不同标识执行不同操作
+    if([shortcutItem.type isEqualToString:@"com.jing.touch.home"]){
+        NSArray * array = @[@"欢迎来到首页"];
+        UIActivityViewController * activityViewControlle = [[UIActivityViewController alloc]initWithActivityItems:array applicationActivities:nil];
+        [navigationViewController presentViewController:activityViewControlle animated:YES completion:^{
+        }];
+    } else if([shortcutItem.type isEqualToString:@"com.jing.touch.share"]){ //进入分享界面
+        ShareViewController * shareVc = [[ShareViewController alloc] init];
+        [navigationViewController pushViewController:shareVc animated:YES];
+         } else if ([shortcutItem.type isEqualToString:@"com.jing.touch.search"]) { //进入搜索界面
+        SearchViewController * searchVc = [[SearchViewController alloc] init];
+             [navigationViewController pushViewController:searchVc animated:YES];
+    } else if ([shortcutItem.type isEqualToString:@"com.jing.touch.location"]) { //进入定位界面
+        LocationViewController * LocationVc = [[LocationViewController alloc] init];
+        [navigationViewController pushViewController:LocationVc animated:YES];
+    }
+    if (completionHandler) {
+        completionHandler(YES);
+    }
+    }
