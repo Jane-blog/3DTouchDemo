@@ -95,3 +95,4 @@ This demo expound the some of the 3 dtouch development methods
         completionHandler(YES);
     }
     }
+#This is according to the relevant information on the apple official documentation and  making do some summary, if you found inaccurate or have new Suggestions can contact me WeChat: cz192230531, or to carry my PR in the making, welcome to contact.
