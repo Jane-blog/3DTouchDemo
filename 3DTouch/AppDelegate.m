@@ -85,19 +85,15 @@
 // 如果app仍在后台运行，通过快捷选项标签进入app调用该方法
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
     
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [self.window setBackgroundColor:[UIColor whiteColor]];
-    [self.window makeKeyAndVisible];
     ViewController * viewController = [[ViewController alloc] init];
     UINavigationController * navigationViewController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    self.window.rootViewController  = navigationViewController;
 #pragma mark -  创建3D touch快捷选项（从info.plist文件获取对应快捷选项标签）
     //判断先前我们设置的快捷选项标签唯一标识，根据不同标识执行不同操作
     if([shortcutItem.type isEqualToString:@"com.jing.touch.home"]){
         
         NSArray * array = @[@"欢迎来到首页"];
         UIActivityViewController * activityViewControlle = [[UIActivityViewController alloc]initWithActivityItems:array applicationActivities:nil];
-        [self.window.rootViewController presentViewController:activityViewControlle animated:YES completion:^{
+        [navigationViewController presentViewController:activityViewControlle animated:YES completion:^{
         }];
     } else if([shortcutItem.type isEqualToString:@"com.jing.touch.share"]){ //进入分享界面
         

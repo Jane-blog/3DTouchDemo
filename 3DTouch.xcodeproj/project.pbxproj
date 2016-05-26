@@ -18,6 +18,7 @@
 		3F0FD9EB1CF5A55500F11B50 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0FD9EA1CF5A55500F11B50 /* ShareViewController.m */; };
 		3F0FD9EE1CF5A56500F11B50 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0FD9ED1CF5A56500F11B50 /* SearchViewController.m */; };
 		3F0FD9F11CF5A56F00F11B50 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0FD9F01CF5A56F00F11B50 /* LocationViewController.m */; };
+		3F0FD9FA1CF6D27400F11B50 /* 屏幕快照 2016-05-26 下午2.38.38.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F0FD9F91CF6D27400F11B50 /* 屏幕快照 2016-05-26 下午2.38.38.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		3F0FD9ED1CF5A56500F11B50 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		3F0FD9EF1CF5A56F00F11B50 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		3F0FD9F01CF5A56F00F11B50 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		3F0FD9F91CF6D27400F11B50 /* 屏幕快照 2016-05-26 下午2.38.38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "屏幕快照 2016-05-26 下午2.38.38.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				3F0FD9BF1CF5A26E00F11B50 /* Main.storyboard */,
 				3F0FD9C21CF5A26E00F11B50 /* Assets.xcassets */,
 				3F0FD9C41CF5A26E00F11B50 /* LaunchScreen.storyboard */,
+				3F0FD9F91CF6D27400F11B50 /* 屏幕快照 2016-05-26 下午2.38.38.png */,
 				3F0FD9C71CF5A26E00F11B50 /* Info.plist */,
 				3F0FD9B61CF5A26E00F11B50 /* Supporting Files */,
 			);
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F0FD9C61CF5A26E00F11B50 /* LaunchScreen.storyboard in Resources */,
+				3F0FD9FA1CF6D27400F11B50 /* 屏幕快照 2016-05-26 下午2.38.38.png in Resources */,
 				3F0FD9C31CF5A26E00F11B50 /* Assets.xcassets in Resources */,
 				3F0FD9C11CF5A26E00F11B50 /* Main.storyboard in Resources */,
 			);
@@ -431,10 +435,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = 3DTouch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jing.touch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -442,10 +450,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = 3DTouch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jing.touch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -514,6 +526,7 @@
 				3F0FD9E21CF5A26E00F11B50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F0FD9E31CF5A26E00F11B50 /* Build configuration list for PBXNativeTarget "3DTouchTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +535,7 @@
 				3F0FD9E51CF5A26E00F11B50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F0FD9E61CF5A26E00F11B50 /* Build configuration list for PBXNativeTarget "3DTouchUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +544,7 @@
 				3F0FD9E81CF5A26E00F11B50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
