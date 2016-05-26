@@ -27,7 +27,7 @@
     self.window.rootViewController  = navigationViewController;
     
 #pragma mark -  创建3D touch快捷选项 不写入info.plist文件
-    [self creatShortcutItem];
+    [self creatShortcutItemBySelf];
     
 #pragma mark -  创建3D touch快捷选项（从info.plist文件获取对应快捷选项标签）
     UIApplicationShortcutItem * shortcutItem = [launchOptions valueForKey:UIApplicationLaunchOptionsShortcutItemKey];
@@ -82,19 +82,26 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-// 如果app仍在后台运行，通过快捷选项标签进入app调用该方法
+#pragma mark - 如果app仍在后台运行，通过快捷选项标签进入app调用该方法
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+
+#warning 这里就不用像- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions该方法一样初始化 self.window 原因是：程序还在后台运行不需要再次初始化window
     
     ViewController * viewController = [[ViewController alloc] init];
     UINavigationController * navigationViewController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    self.window.rootViewController  = navigationViewController;
 #pragma mark -  创建3D touch快捷选项（从info.plist文件获取对应快捷选项标签）
     //判断先前我们设置的快捷选项标签唯一标识，根据不同标识执行不同操作
     if([shortcutItem.type isEqualToString:@"com.jing.touch.home"]){
-        
+    
         NSArray * array = @[@"欢迎来到首页"];
         UIActivityViewController * activityViewControlle = [[UIActivityViewController alloc]initWithActivityItems:array applicationActivities:nil];
-        [navigationViewController presentViewController:activityViewControlle animated:YES completion:^{
+        [self.window.rootViewController presentViewController:activityViewControlle animated:YES completion:^{
         }];
+#pragma mark -  或是      
+//        [self.window.rootViewController presentViewController:viewController animated:YES completion:^{
+//        }];
+
     } else if([shortcutItem.type isEqualToString:@"com.jing.touch.share"]){ //进入分享界面
         
         ShareViewController * shareVc = [[ShareViewController alloc] init];
@@ -109,14 +116,13 @@
         
         [navigationViewController pushViewController:LocationVc animated:YES];
     }
-//
     if (completionHandler) {
         completionHandler(YES);
     }
 }
 
 #pragma mark -  创建3D touch快捷选项 不写入info.plist文件
-- (void)creatShortcutItem {
+- (void)creatShortcutItemBySelf {
     
 #warning  或是创建自定义图标的icon
     //    UIApplicationShortcutIcon * homeIconBySelf = [UIApplicationShortcutIcon iconWithTemplateImageName:@"自定义图片名称.png"];
