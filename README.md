@@ -15,7 +15,7 @@ This demo expound the some of the 3 dtouch development methods
 ]
 }
 ```
-
+[![TAILOR SWIFT ON RAILS](https://github.com/FlyJing/3DTouchDemo/blob/master/3DTouch/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-26%20%E4%B8%8B%E5%8D%882.38.38.png)]
 #除了静态标签外，也可以在工程中添加动态标签例如
 #warning  或是创建自定义图标的icon
     //    UIApplicationShortcutIcon * homeIconBySelf = [UIApplicationShortcutIcon iconWithTemplateImageName:@"自定义图片名称.png"];
