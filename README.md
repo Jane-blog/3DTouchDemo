@@ -26,9 +26,10 @@ This demo expound the some of the 3 dtouch development methods
     UIApplicationShortcutItem * item = [[UIApplicationShortcutItem alloc]initWithType:@"com.jing.touch.home" localizedTitle:@"首页" localizedSubtitle:@"进入首页" icon:icon userInfo:nil];
     //添加到快捷选项数组
     [UIApplication sharedApplication].shortcutItems = @[item];
-   注释：
+ ***注释：
     1系统限制每个App最多能够显示4个Action Item，其中包括静态方式和动态方式进行创建的；
     2如果静态和动态方式同时使用的时候，给UIApplication的shortcutItems赋值的时候不会覆盖
+    
     *在AppDelegate.m文件中加如下代码：
     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
